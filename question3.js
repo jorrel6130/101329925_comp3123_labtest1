@@ -23,7 +23,9 @@ logPromise.then((resolve) => {
                 if (err) throw err;
             });
         })
-        resolve("Files finished deleting.");
+        setTimeout(() => {
+            resolve("Files finished deleting.");
+        }, 500); // Added timeout to allow files to finish deleting
     });
     
     filePromise.then((resolve) => {
