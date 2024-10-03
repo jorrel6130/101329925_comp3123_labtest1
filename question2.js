@@ -1,15 +1,22 @@
 // Name: Jorrel Tigbayan
 // ID: 101329925
 
-const delayedSuccess = () => {
+const resolvedPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
-        let success = {'message': 'delayed success!'}
-        console.log(success);
+        resolve({'Resolved': 'Eventual Success!'})
     }, 500);
-}
+});
 
-const delayedException = () => {
+const rejectedPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
-        
-    });
-}
+        reject({'Rejected': 'Took too long!'})
+    }, 500);
+});
+
+resolvedPromise.then((resolve) => {
+    console.log(resolve);
+})
+
+rejectedPromise.catch((reject) => {
+    console.log(reject);
+})
